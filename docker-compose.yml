@@ -1,0 +1,12 @@
+version: '3'
+services:
+  redis-server:
+    image: 'redis'
+  todo-app:
+    restart: always
+    environment:
+      - 'NODE_ENV=production'
+    build: .
+    ports:
+      - '4001:8081'
+    
