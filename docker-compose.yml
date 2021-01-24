@@ -3,10 +3,16 @@ services:
   redis-server:
     image: 'redis'
   todo-app:
-    restart: always
+    restart: always    
+    stdin_open: true
     environment:
-      - 'NODE_ENV=production'
-    build: .
+      - CHOKIDAR_USEPOLLING=true      
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     ports:
-      - '4001:8081'
+      - '4000:4000'
+    volumes:
+      - /app/node_modules
+      - .:/app
     

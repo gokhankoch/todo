@@ -28,11 +28,11 @@ mongoose
     useFindAndModify: false,
     useUnifiedTopology: true
   })
-  .then(() => console.log('DB connection succesfull!'));
+  .then(() => console.log('DB connection succesfull!!'));
 
 // catch database change event and inform all connected client
 Task.watch().on('change', () => {
-  console.log('Something changed in DB!');
+  console.log('Something changed in DB!!');
   if (socket.broadcast) socket.broadcast.emit('#UPDATE');
 });
 
